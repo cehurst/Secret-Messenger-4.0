@@ -1,0 +1,25 @@
+Author: Chayson Hurst
+Contact: chayson.hurst@gmail.com
+
+Welcome to Secret Messanger!
+
+Here is how it works: 
+	You give the program a file with a message (encrypted or unencrypted).
+	You give the program an additional file that contains the key.
+	You indicate whether you want to encrypt or decrypt the message using 'd' for decrypt and 'e' for encrypt.
+	The program is called smess.
+	
+Rules for use:
+	Your key MUST be on one line.
+	Your message CAN include spaces.
+	
+Examples:
+	./smess [message file] [key file] [destination file] [d/e]
+	// the above is the prototype for running the program.
+
+	./smess message.txt key.txt message.txt e
+	// the above calls the program and encrypts the message in message.txt using the key in key.txt and places the result in message.txt.
+	
+	./smess message.txt key.txt out.txt d
+	//the above calls the program and decrypts the message in message.txt using the key in key.txt and places the result in out.txt.
+	
