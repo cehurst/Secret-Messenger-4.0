@@ -91,7 +91,7 @@ int main(int argc, const char* argv[])
 	outFile.close();
 	
 	// the following gets the chars from the input file
-	// ALL INPUT FOR KEY AND INPUT MUST BE ON ONE LINE!
+	// ALL INPUT FOR KEY MUST BE ON ONE LINE!
 	string keyIn;
 	//getline(file1, input);
 	getline(file2, keyIn);
@@ -132,7 +132,6 @@ int main(int argc, const char* argv[])
 }
 
 void encrypt(char alphabet[], string input, vector<unsigned int> & key, const char* outFileName) {
-	// the following gets the message to encrypt/dectypt
 	vector<unsigned int> message;
 	for (unsigned int i = 0; i < input.size(); i++) {
 		for (unsigned int j = 0; j < 71; j++) {
@@ -153,18 +152,16 @@ void encrypt(char alphabet[], string input, vector<unsigned int> & key, const ch
 	for (unsigned int i = 0; i < message.size(); i++) {
 		keyIndex++;
 		keyIndex = keyIndex % keySize;
-		// encrypt uses + so decrypt must use -
+		// decrypt uses - so encrypt must use +
 		shift = key[keyIndex] + message[i];
 		shift = shift % 71;
 		outFile << alphabet[shift];
 	}
 	outFile << "\n";
 	outFile.close();
-	//cout << endl << "Message encrypted!" << endl;
 }
 
 void decrypt(char alphabet[], string input, vector<unsigned int> & key, const char* outFileName) {
-	// the following gets the message to encrypt/dectypt
 	vector<unsigned int> message;
 	for (unsigned int i = 0; i < input.size(); i++) {
 		for (unsigned int j = 0; j < 71; j++) {
@@ -190,10 +187,8 @@ void decrypt(char alphabet[], string input, vector<unsigned int> & key, const ch
 		difference = (message[i] - key[keyIndex]);
 		shift += difference;
 		shift = shift % 71;
-		//cout << alphabet[shift];	this line prints to terminal
-		outFile << alphabet[shift]; // this line should print to output file
+		outFile << alphabet[shift];
 	}
 	outFile << "\n";
 	outFile.close();
-	//cout << endl << "Message decrypted!" << endl;
 }
